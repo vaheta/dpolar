@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.5.0">
+    
+    <integrator type="depth" />
+    
+<!--     <integrator type="adaptive">
+        <float name="maxError" value="0.01" />
+		<integrator type="path"/>
+	</integrator>
+    
+    <emitter type="envmap">
+        <string name="filename" value="glacier.exr" />
+        <transform name="toWorld">
+            <rotate x="1" angle="180" />
+            <rotate y="1" angle="0" />
+        </transform>
+    </emitter> -->
+<!--     <emitter type="point">
+        <spectrum name="intensity" value="100"/>
+        <transform name="toWorld">
+            <translate x="7" y="1" z="-7"/>
+        </transform>
+    </emitter> -->
+
+	<sensor type="orthographic">
+		<transform name="toWorld">
+            <!--0 deg-->
+			<lookAt origin="0, 0, -10" target="0, 0, 0" up="0, 1, 0"/> 
+            
+            <!--+10 deg-->
+            <!-- <lookAt origin="-1.7365, 0, -9.8481" target="0, 0, 0" up="0, 1, 0"/> -->
+             
+            <!---10 deg-->
+            <!-- <lookAt origin="1.7365, 0, -9.8481" target="0, 0, 0" up="0, 1, 0"/>  -->
+
+            <!---10 deg y-->
+            <!-- <lookAt origin="0, 1.7365, -9.8481" target="0, 0, 0" up="0, 1, 0"/>  -->
+
+            <!--+10 deg y-->
+            <!-- <lookAt origin="0, -1.7365, -9.8481" target="0, 0, 0" up="0, 1, 0"/>  -->
+            
+            <!--misc-->
+            <!--<matrix value="0.984807753012208 0 0.173648177666930 -1.71663302354863 0 1 0 0 -0.173648177666930 0 0.984807753012208 0.302688718026773 0 0 0 1"/>-->
+            <!-- <lookAt origin="5.77, 2.5, -5.77" target="0, 0, 0" up="0, 1, 0"/>  -->
+            
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="128"/>
+		</sampler>
+
+		<film type="mfilm">
+			<integer name="width" value="500"/>
+			<integer name="height" value="500"/>
+            <integer name="digits" value="10" />
+			<rfilter type="gaussian"/>
+			<!-- <string name="fileFormat" value="numpy" /> -->
+		</film>
+
+	</sensor>
+
+    <shape type="sphere">
+    
+<!--         <bsdf type="roughconductor">
+            <float name="alpha" value="0.3" />
+            <string name="distribution" value="phong" />
+            <spectrum name="specularReflectance" value="0.5" />
+        </bsdf> -->
+        <bsdf type="conductor">
+			<string name="material" value="Au"/>
+		</bsdf>
+
+        
+<!--         <bsdf type="diffuse" >
+            <spectrum name="reflectance" value="1"/>
+        </bsdf> -->
+        
+        
+        <point name="center" x="0" y="0" z="0" />
+        <float name="radius" value="0.5" />
+    </shape>
+    
+    <!--<shape type="rectangle" />-->
+<!--     <shape type="rectangle">
+  		<transform name="toWorld">
+            <rotate x="1" angle="-90" />
+            <scale value="100"/>
+            <translate  y="-0.5" />
+        </transform>
+    	<bsdf  type="diffuse" >
+    		<spectrum name="reflectance" value="1"/> -->
+<!--     		<texture type="gridtexture" name="reflectance">
+    			<spectrum name="color0" value="0.5" />
+    			<spectrum name="color1" value="1" />
+    			<float name="uscale" value="10" />
+    			<float name="vscale" value="10" />
+    			<float name="lineWidth" value="0.5" />
+    		</texture> -->
+<!--     	</bsdf>
+    </shape> -->
+    
+    
+
+</scene>
