@@ -45,7 +45,6 @@ ymap = np.zeros((200,200))
 for x in range(0, xmax):
     for y in range (0, ymax):
         Iup = Iups[y,x]
-        Iup = 1
         Ip = Ips[y,x]
         ps = psis[y,x]
         sps2 = (math.sin(ps))**2
@@ -53,18 +52,21 @@ for x in range(0, xmax):
         tps = math.tan(ps)
         th = thetas[y,x]
         ph = phis[y,x]
-        if ph>0:
-            Ip = 0.7
-            ps = 0
-        else:
-            Ip = 1.3
-            ps = pi/2
+        # if ph>0:
+        #     Ip = 0.7
+        #     ps = 0
+        # else:
+        #     Ip = 1.3
+        #     ps = pi/2
         if (~np.isnan(dm[y,x])):
             thmap = int(math.floor(th*200/(pi/2+0.1)))
             phmap = int(math.floor((ph+pi)*200/(2*pi+0.1)))
-            # print (th, ph)
             xmap[thmap,phmap] = x
             ymap[thmap,phmap] = y
+        else:
+            for i, angle in enumerate(angles):
+                I[y,x,i] = 0
+            continue        
         cth = math.cos(th)
         sth = math.sin(th)
         Rs = ((cth - math.sqrt(n2 - sth**2))/(cth + math.sqrt(n2 - sth**2)))**2
