@@ -1,1 +1,16 @@
 .vscode/
+__pycache__/
+.ipynb_checkpoints/
+26.05/
+align_out/
+face_render/
+for_processing/
+models/
+polar_grab/
+rectified/
+sphere_render/
+mstereo_cap/
+stereo_fin/calib_folder/
+stereo_fin/images/
+polartempout.npz
+dm.mat
